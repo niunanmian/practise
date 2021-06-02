@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="author" content="sina_mobile">
+    <meta name="format-detection" content="telephone=no" />
+    <title>indexDB</title>
+    <style>
+        .caa{
+            border:1px solid #ccc;
+            width:300px;
+            height: 250px;
+        }
+        .outbox{
+            width:300px;
+            border:1px solid #ccc;
+            font-size: 25px;
+            height: 200px;
+
+        }
+        .innerbox{
+            height:200px;
+            color:#333;
+            line-height:20px;
+            font-size:20px;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+<div class="caa">
+   <p>大学校徽</p>
+
+    <img src="image/webp.webp (4).png" height="216" width="260"/></div>
+<div class="outbox">
+    <p>大学名:</p>
+    <button>显示</button>
+    <div class="innerbox" id="content1"></div>
+</div>
+<div class="outbox">
+    <p>大学所在地:</p>
+    <button>显示</button>
+    <div class="innerbox" id="content4"></div>
+</div>
+<script>
+    var content = null;
+    // 本演示使用的数据库名称
+    var dbName = 'project';
+    // 版本
+    var version = 1;
+    // 数据库数据结果
+    var db;
+
+    // 打开数据库
+    var DBOpenRequest = window.indexedDB.open(dbName, version);
+
+    // 如果数据库打开失败
+    DBOpenRequest.onerror = function(event) {
+        logError('数据库打开失败');
+    };
+
+    DBOpenRequest.onsuccess = function(event) {
+        // 存储数据结果
+        db = DBOpenRequest.result;
+    };
+
+    // 下面事情执行于：数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）
+    DBOpenRequest.onupgradeneeded = function(event) {
+        db = event.target.result;
+
+        db.onerror = function(event) {
+            logError('数据库打开失败');
+        };
+
+        // 创建一个数据库存储对象
+        var objectStore = db.createObjectStore(dbName, {
+            keyPath: 'id',
+            autoIncrement: true
+        });
+
+        // 定义存储对象的数据项
+        objectStore.createIndex('id', 'id', {
+            unique: true
+        });
+        objectStore.createIndex('大学名', '大学名');
+        objectStore.createIndex('address', 'address');
+    };
+
+    var method = {
+        // 添加数据
+        add: function (newItem) {
+            var transaction = db.transaction([dbName], "readwrite");
+            // 打开已经存储的数据对象
+            var objectStore = transaction.objectStore(dbName);
+            // 添加到数据对象中
+            var objectStoreRequest = objectStore.add(newItem);
+
+            objectStoreRequest.onsuccess = function(event) {
+
+            };
+        },
+        // 更新数据
+
+        // 通过主键key单个记录数据,主键是前面开始设置的相应key值
+
+        // 显示函数
+        cursor: function () {
+            var transaction = db.transaction([dbName], "readwrite");
+            var store = transaction.objectStore(dbName);
+            var request = store.openCursor();//打开游标
+            var arr = [];
+            var ass="广东工业大学"
+            var assd="大学城小谷围街道"
+            content =ass;
+            content2=assd;
+            request.onsuccess = function(e) {
+                var cursor = e.target.result;
+                if (cursor) {
+                    console.log(cursor);
+                    arr.push(cursor.value);
+                    cursor.continue();
+                }
+               cvvv=JSON.stringify(arr)
+                console.log(cvvv)
+            };
+        }
+    };
+    let count = 0;
+    //
+    document.querySelectorAll('button')[0].onclick = function () {
+        // method.cursor();
+        method.add({"name":"广东工业大学"});
+        method.cursor();    // 遍历所有数据库表project的记录，并输出到div里面
+        document.querySelector("#content1").innerHTML = content;
+    }
+    //
+    document.querySelectorAll('button')[1].onclick = function () {
+        method.add({"address":"大学城小谷围街道"});
+        method.cursor();    // 遍历所有数据库表project的记录，并输出到div里面
+        document.querySelector("#content4").innerHTML = content2;
+    }
+</script>
+</body>
+</html>

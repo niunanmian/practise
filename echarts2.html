@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+</head>
+<style>
+    .xxx{
+        background: rgba(242,244,246,0.6);
+        height: 300px;
+        width: 800px;
+        margin: 0 auto;
+        border-radius: 30px;
+
+    }
+</style>
+<body>
+<div class="xxx">
+<div id="weather" class="col-lg-7 col-md-12" style="height:300px;width: 800px"></div>
+</div>
+<script>
+
+        var cityCode = 101010100;
+
+
+
+        $.ajax({
+            url: "https://devapi.qweather.com/v7/weather/3d?location=101010100&key=c38f8c72a13646aeb9f30a0203359178",  //天气API
+            //data: {key:'01100514',location: cityCode},
+            success: function (res) {
+                console.log(res)
+
+            }
+        })
+
+
+
+
+
+
+
+
+
+        var max, min;
+        $.ajax({
+            type: "GET",
+            url: 'https://cdn.weather.hao.360.cn/sed_api_weather_info.php?code=' + cityCode,
+            dataType: "jsonp",
+            jsonp: "_jsonp",//参数名
+
+            success: function (res) {
+                var data = new Array(7)
+                min = res.f3h[0].jb;
+                max = res.f3h[0].jb;
+                //处理x轴坐标时间
+                for (var i = 0; i < 7; i++) {
+                    var tt = res.f3h[i].jg
+                    //var ff = tt.toString().substring(5, 6) + '-' + tt.toString().substring(6, 8)
+                    var yy = tt.toString().substring(8, 10)
+                    //console.log(yy)
+                    data[i] = yy;
+                    min = min < res.f3h[i].jb ? min : res.f3h[i].jb;
+                    max = max > res.f3h[i].jb ? max : res.f3h[i].jb;
+
+                }
+                if(min%2!=0){
+                    min--;
+                }
+                if(max%2!=0){
+                    min++;
+                }
+                var gh=Number(max)-Number(min)
+                var tt=parseInt(gh/2);
+                console.log(tt)
+                //console.log(gh)
+                var weather = echarts.init($('#weather').get(0));
+                option = {
+                    title: {
+                        text: '24h气温变化',
+                        subtext: ''
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['最高气温', '最低气温']
+                    },
+                    xAxis: {//x坐标轴
+                        type: 'category',//坐标轴的类型
+                        boundaryGap: false,
+                        data: [],
+                        axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                               // color: '#ceefe4',//左边线的颜色
+                                width:'1'//坐标线的宽度
+                            }}
+
+                    },
+                    yAxis: {
+                        scale: true, //纵坐标起始点根据最低值变化
+                        type: 'value',
+                        min: min,
+                        max: max,
+                        interval:tt,
+                        splitNumber: 2,
+                        //minInterval: 3,
+                        axisLine:{interval: 'auto'},
+                        axisLabel: {
+                            formatter: '{value} °C'
+                        },
+                        splitLine:{//y坐标轴刻度的横线
+                            show:false
+                        }
+                    },
+                    series: [{
+                        name: '气温',
+                        type: 'line',
+                        symbolSize: 10,   //设定实心点的大小
+                        data: [],
+                        lineStyle: {//设置折线的颜色
+                            color: 'rgba(217,217,243,1)'
+                        },
+                        itemStyle: {//设置折线点的颜色
+                            normal: {
+                                color: '#dadada'
+                            }
+                        }
+
+                    }
+
+                    ]
+                };
+                weather.setOption(option)
+
+                console.log(res)
+                //console.log(res.realtime.city_name)
+                //显示当前城市
+                option.title.subtext = '当前城市：' + res.realtime.city_name
+                //给横坐标复赋值
+
+
+                option.xAxis.data = [data[0] + '时', data[1] + '时', data[2] + '时', data[3] + '时', data[4] + '时', data[5] + '时',
+                    data[6] + '时'
+                ]
+                //由于温度返回的是xx℃ 而我们只需要数字 所以用parseInt截取数字
+                option.series[0].data = [parseInt(res.f3h[0].jb), parseInt(res.f3h[1].jb), parseInt(res.f3h[2]
+                    .jb), parseInt(res.f3h[3].jb), parseInt(res.f3h[4].jb), parseInt(res.f3h[5].jb), parseInt(res.f3h[6].jb)]
+                weather.setOption(option); // 使用刚指定的配置项和数据显示图表。
+            }
+        })
+
+</script>
+</body>
+</html>

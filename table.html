@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="jquery.min.js"></script>
+</head>
+<body>
+<table class="table table-striped table-bordered table-condensed" id="city">
+  <tr><th>ID</th><th>名字(NAME)</th><th>操作</th></tr>
+  <tr><th>ID</th><th>名字(NAME)</th><th><button>删除</button></th></tr>
+</table>
+<script>
+  $(function() {
+    $("table button").click(function () {
+      var item=0;
+      item="<tr><td>"+'sdfs'+"</td><td>"+'cursor.value.name'+"</td><td>"+'<button id="sdf">操作</button>';
+      $('.table').append(item);
+      console.log("xsa")
+      $("#sdf").click(function () {
+        console.log('sdas')
+      })
+    })
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三角</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .big{
+      position: relative;
+        width: 150px;
+        height: 25px;
+        margin: 100px auto;
+        border: 1px solid #00a4ff;
+        line-height: 25px;
+        text-align: center;
+
+    }
+    .big span{
+        float: left;
+        width:50px ;
+        height: 100%;
+        color: white;
+
+    }
+    .big .left{
+        font-size:14px ;
+        width: 85px;
+        position: relative;
+        background: #00a4ff;
+        font-weight: bold;
+    }
+.big i{
+
+    position: absolute;
+    width: 0;
+    height: 0;
+    top:0;
+    right: 65px;
+    border-color: transparent #fff transparent transparent;
+    border-width: 25px 10px 0 0;
+    border-style: solid;
+}
+.big .right{
+    color: #bfbfbf;
+    margin-left: 3px;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+</style>
+<body>
+<div class="big">
+    <span class="left">￥1650</span>
+    <i></i>
+    <span class="right">￥5600</span>
+
+</div>
+</body>
+</html>

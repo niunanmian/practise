@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float布局练习</title>
+</head>
+<style>
+    .box{
+        height: 615px;
+        width: 1226px;
+        background-color: #ff6f00;
+        margin: 100px auto;
+    }
+    .box .left{
+        width: 234px;
+        height: 615px;
+        float: left;
+        background-color: purple;
+    }
+    .box .right{
+        width: 992px;
+        height: 615px;
+        background-color: skyblue;
+        float: left;
+    }
+    .right>div{
+        width: 234px;
+        height: 300px;
+        float: left;
+        background-color: pink;
+        margin-left: 14px;
+        margin-bottom: 14px;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="left"></div>
+    <div class="right">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学成网首页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body{
+        background-color: #f3f5f7;
+        font-family:"微软雅黑";
+       width:1900px ;
+    }
+    a{
+        text-decoration: none;
+    }
+    .outside{
+        background-color: #f3f5f7;
+    }
+    .top{
+        height: 100px;
+        width: 1200px;
+        background-color: #f3f5f7;
+        margin: 0 auto;
+    }
+    .top .study{
+        margin-top: 30px;
+        float: left;
+    }
+    .top a{
+        display: inline-block;
+        height: 43px;
+        line-height: 43px;
+        font-family:"微软雅黑";
+        float: left;
+        font-size: 18px;
+        margin-right: 34px;
+        margin-top: 28px;
+    }
+    .top a:hover{
+        border-bottom: 2px solid #00a4ff;
+    }
+    .top .firstspan{
+        margin-left: 70px;
+    }
+    .top .search{
+        width: 360px;
+        height: 36px;
+        margin-top: 30px;
+        border: 1.8px solid #00a4ff;
+        float: left;
+        margin-left: 82px;
+    }
+    .top .searchphoto{
+        margin-top: 30px;
+        margin-right: 32px;
+        float: left;
+    }
+    .top .userphoto{
+        float: left;
+        margin-top: 35px;
+        margin-right: 7px;
+    }
+   .top .username{
+       float: left;
+       margin-top: 38px;
+       font-size: 15px;
+       color:#666666;
+
+   }
+   .twofather{
+       height: 420px;
+       background-color: #1c036c;
+   }
+    .two{
+        height: 420px;
+        width: 1200px;
+        background-color: #1c036c;
+        margin: 0 auto;
+    }
+    .twoleft{
+        float: left;
+        width: 190px;
+        height: 420px;
+        background: url("image/pss.png");
+    }
+    .twoleft .test{
+        display: block;
+        height: 43px;
+        width: 185px;
+        background: url("image/形状3拷贝2.png");
+        font-size: 14px;
+        color: #ffffff;
+        line-height: 33px;
+    }
+    .twoleft .test:hover{
+        background: url("image/形状蓝色.png");
+        color: #00a4ff;
+    }
+    .twoleft .test p{
+        display: inline-block;
+       margin-left: 22px;
+    }
+    .twoleft .fff{
+        margin-top: 17px;
+    }
+    .twoleft .photo{
+        display: inline-block;
+        height: 43px;
+        width: 30px;
+        font-size: 14px;
+        color: #ffffff;
+        margin-left: 33px;
+
+    }
+    .tworight{
+        height: 420px;
+     width: 1200px;
+   background-image: url("image/banner2.png");
+    }
+    .tworight .timetable{
+        float: right;
+        width: 226px;
+        height: 300px;
+        margin-top: 50px;
+        background-image: url("image/图层 150.png");
+    }
+    .timetable span{
+        display: block;
+        width: 192px;
+        height: 60px;
+        border-bottom: 1px solid #efefef;
+        margin-left: 25px;
+
+    }
+    .timetable .topspan{
+        margin-top: 10px;
+    }
+    .timetable .title{
+        display: block;
+        height: 48px;
+        width: 226px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #eeeeee;
+        text-align: center;
+       line-height:48px ;
+    }
+    .timetable span>p{
+        font-family: "方正兰亭超细黑简体";
+        font-size: 16px;
+        color: black;
+        font-weight: 400;
+
+    }
+    .timetable .spantext{
+  padding-top: 15px;
+    }
+    .timetable .spantextgrey{
+       color: #c6c6c6;
+    }
+
+    .allclassbutton .button{
+        display: block;
+        width: 140px;
+        height: 40px;
+        border: 1px solid #22b0ff;
+        color:#22b0ff ;
+        font-size: 16px;
+        margin-left: 14px;
+        line-height: 40px;
+        margin-top: 6px;
+        padding-left: 60px;
+
+
+    }
+    .three{
+        width: 1200px;
+        height: 60px;
+        background-color: #fff;
+        margin:8px auto 0 auto;
+    }
+    .three>span{
+        display: inline-block;
+        font-size: 16px;
+
+        margin: 22px 32px 22px 22px;
+    }
+    .three .firstspan{
+        color: #00a4ff;
+        font-weight: bold;
+        padding-left: 5px;
+    }
+    .three>p{
+        display: inline-block;
+        color: #bfbfbf;
+    }
+    .three>a{
+        display: inline-block;
+        font-size: 14px;
+        color: #00a4ff;
+        margin-left: 240px;
+    }
+    .min{
+        width: 1200px;
+        height: 77px;
+        margin:0px auto 0 auto;
+    }
+    .ff{
+        float: right;
+        color: #a5a5a5;
+        font-size: 12px;
+        margin-top: 42px;
+    }
+     .kk{
+        float: left;
+         color: #494949;
+         font-size: 20px;
+         margin-top: 34px;
+         margin-right: 329px;
+
+    }
+     .daohang{
+         display: inline-block;
+         font-size: 16px;
+         color: #868686;
+         margin-right: 67px;
+         margin-top: 34px;
+
+     }
+     .daohang:hover{
+         color: #00a4ff;
+     }
+    .main{
+        width: 1200px;
+        overflow: hidden;
+        margin: 0 auto;
+        background-color:#f3f5f7;
+    }
+    .main a{
+        display: block;
+    }
+   .main>div{
+        width: 228px;
+        height: 270px;
+        float: left;
+        background-color: #eeeeee;
+        margin-right: 14px;
+       margin-bottom: 14px;
+    }
+   .main .last{
+       margin-right: 0;
+       background: url("image/图层 137.png") no-repeat;
+   }
+.main .mainfirst{
+    background: url("image/图层 133.png") no-repeat;
+}
+.main .mainsecond{
+    background: url("image/图层 135.png") no-repeat;
+}
+    .main .mainthird{
+        background: url("image/图层 136.png") no-repeat;
+    }
+    .main .mainfourth{
+        background: url("image/图层 137.png") no-repeat;
+    }
+   .main .spp{
+        margin-bottom: 0;
+    }
+    .main p{
+        display: block;
+        width: 186px;
+        height: 38px;
+        font-size: 14px;
+        margin-top: 180px;
+        margin-left: 25px;
+        margin-bottom: 9px;
+    }
+    .main span{
+        font-size: 12px;
+        color: #999999;
+    }
+    .main .firstspan{
+        color: #ff7c2d;
+        margin-left: 25px;
+    }
+    .main .secondspan{
+        margin-left: 4px;
+        margin-right: 5px;
+    }
+    .main .mainone{
+        background: url("image/图层 145.png");
+    }
+    .main .maintwo{
+        background: url("image/图层 143.png");
+    }
+    .main .mainthree{
+        background: url("image/图层 144.png");
+    }
+    .main .mainfour{
+        background: url("image/图层 142.png");
+    }
+    .main .mainfivelast{
+        background: url("image/图层 146.png");
+        margin-right: 0;
+    }
+    .main .onemain{
+        background: url("image/图层 142.png");
+    }
+    .main .twomain{
+        background: url("image/图层 144.png");
+    }
+    .main .threemain{
+        background: url("image/图层 143.png");
+    }
+    .main .fourmain{
+        background: url("image/图层 146.png");
+    }
+    .main .fivemain{
+        background: url("image/图层 145.png");
+        margin-right: 0;
+    }
+   .min2{
+       height: 77px;
+       width: 1200px;
+       margin:0 auto;
+   }
+   .four{
+       width: 1200px;
+       height: 396px;
+       margin: 0 auto 0px auto;
+
+   }
+   .four .left{
+       width: 228px;
+       float: left;
+   }
+   .four .right{
+       width: 958px;
+       float: right;
+   }
+   .four .right .top2{
+       margin-bottom: 23px;
+   }
+   .bottom{
+       width:958px;
+       height: 265px;
+
+   }
+    .bottom>div{
+       width: 229px;
+        height: 265px;
+       margin-right: 14px;
+       float: left;
+       background-color: pink;
+   }
+   .bottom .last{
+        margin-right: 0;
+       background: url("image/图层 143.png");
+    }
+  .bottom .bottomfirst{
+       background: url("image/图层 145.png");
+   }
+    .bottom .bottomsecond{
+        background: url("image/图层 146.png");
+    }
+    .bottom .bottomthird{
+        background: url("image/图层 144.png");
+    }
+    .bottom p{
+        display: block;
+        width: 186px;
+        height: 38px;
+        font-size: 14px;
+        margin-top: 175px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+    }
+    .bottom span{
+        font-size: 12px;
+        color: #999999;
+    }
+    .bottom .firstspan{
+        color: #ff7c2d;
+        margin-left: 25px;
+    }
+    .bottom .secondspan{
+        margin-left: 4px;
+        margin-right: 5px;
+    }
+    .four .bottom .botfirst{
+        background: url("image/图层 146.png");
+    }
+    .four .bottom .botsecond{
+        background: url("image/图层 145.png");
+    }
+    .four .bottom .botthird{
+        background: url("image/图层 143.png");
+    }
+    .four .bottom .botlast{
+        background: url("image/图层 144.png");
+        margin-right: 0px;
+    }
+   .special .main{
+       margin-bottom: 38px;
+   }
+   .special .main>div{
+       margin-bottom: 0px;
+   }
+   .bt{
+       height: 420px;
+       background-color: #fff;
+       margin: 0 auto;
+   }
+.bt .end{
+    width: 1200px;
+    height: 420px;
+
+    margin: 0 auto;
+}
+.bt .end .laststudy{
+    margin-top: 33px;
+    margin-left: 18px;
+}
+.end .left p{
+    display:block;
+    width: 433px;
+    height: 36px;
+    font-size: 12px;
+    font-family: "宋体";
+    margin-top: 21px;
+    margin-left: 18px;
+
+}
+.end .left a{
+    display: block;
+    width: 97px;
+    height: 37px;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    color: #00a4ff;
+    margin-left: 28px;
+    line-height:37px ;
+    padding-left:23px ;
+}
+.bt .end .left{
+    float: left;
+    width: 450px;
+    height: 185px;
+    margin-right: 218px;
+
+
+}
+.bt .end .endone {
+    float: left;
+    width: 83px;
+    height: 166px;
+    margin-right: 140px;
+}
+    .bt .end .endonelast {
+        float: left;
+        width: 83px;
+        height: 166px;
+        margin-right: 0px;
+        margin-left: -18px;
+    }
+.endone   p{
+    display: block;
+    font-size: 16px;
+    margin-top: 33px;
+    margin-bottom: 14px;
+}
+.endone span{
+    display: block;
+    font-size: 12px;
+    font-family: "宋体";
+    margin-bottom: 8px;
+}
+    .endonelast   p{
+        display: block;
+        font-size: 16px;
+        margin-top: 33px;
+        margin-bottom: 14px;
+    }
+    .endonelast span{
+        display: block;
+        font-size: 12px;
+        font-family: "宋体";
+        margin-bottom: 8px;
+    }
+    .bt .end .ddd{
+        width: 100px;
+    }
+     .mostleft{
+         float: left;
+         width: 185px;
+         height: 425px;
+         background: white;
+         margin-right: -406px;
+         margin-left: 146px;
+         margin-top: 255px;
+
+     }
+.mostleft a{
+    display: block;
+    font-size: 14px;
+     height: 36px;
+    width: 185px;
+    margin-left: 29px;
+    line-height: 36px;
+}
+    .mostleft a:hover{
+        color: #00a4ff;
+    }
+    .mostleft .topa{
+        margin-top: 15px;
+    }
+   .main em{
+        position: absolute;
+       top: 4px;
+       right: -4px;
+    }
+   .main .ggg{
+       position: relative;
+   }
+</style>
+<body>
+<div class="outside">
+<div class="top">
+    <img src="image/学成在线.png" class="study" height="42" width="195"/>
+   <a class="firstspan">首页</a>
+   <a>课程</a>
+   <a>职业规划</a>
+   <input type="text" class="search">
+
+    <img src="image/fa-search.jpg" class="searchphoto" height="40" width="50"/>
+
+    <img src="image/椭圆7.png" class="userphoto" height="30" width="30"/>
+    <span class="username">qq-leishul</span>
+</div>
+    <div class="twofather">
+<div class="two">
+    <div class="twoleft">
+        <a class="test fff" href="#">
+        <p >前端开发</p>
+        </a>
+        <a class="test ">
+            <p >后端开发</p>
+        </a>
+        <a class="test ">
+            <p >移动开发</p>
+        </a>
+        <a class="test ">
+            <p >人工智能</p>
+        </a>
+        <a class="test ">
+            <p >商业预测</p>
+        </a>
+        <a class="test ">
+            <p >云计算&大数据</p>
+        </a>
+        <a class="test ">
+            <p >运维&从测试</p>
+        </a>
+        <a class="test ">
+            <p >UI设计</p>
+        </a>
+        <a class="test ">
+            <p >产品</p>
+        </a>
+
+
+    </div>
+    <div class="tworight">
+    <div class="timetable">
+        <p class="title">我的课程表</p>
+        <span class="topspan">
+            <p class="spantext">继续学习 程序语言设计</p>
+            <p class="spantextgrey">正在学习-使用对象</p>
+        </span>
+        <span>
+            <p class="spantext">继续学习 程序语言设计</p>
+            <p class="spantextgrey">正在学习-使用对象</p>
+        </span>
+        <span>
+            <p class="spantext">继续学习 程序语言设计</p>
+            <p class="spantextgrey">正在学习-使用对象</p>
+        </span>
+        <div class="allclassbutton">
+            <p class="button">全部课程</p>
+        </div>
+      </div>
+</div>
+</div>
+<div class="three">
+    <span class="firstspan">精品推荐</span>
+    <p>|</p>
+    <span>JQuery</span>
+    <p>|</p>
+    <span>Spark</span>
+    <p>|</p>
+    <span>MySQL</span>
+    <p>|</p>
+    <span>JavaWeb</span>
+    <p>|</p>
+    <span>MySQL</span>
+    <p>|</p>
+    <span>JavaWeb</span>
+    <a href="#">修改兴趣</a>
+</div>
+<div class="min">
+    <p class="kk">精品推荐</p>
+    <p class="ff">查看全部</p>
+</div>
+        <div class="mostleft">
+            <a class="topa">编程入门</a>
+            <a>数据分析师</a>
+            <a>机器学习工程师</a>
+            <a>前端开发工程师</a>
+            <a>人工智能工程师</a>
+            <a>全栈工程师</a>
+            <a>iOS工程师</a>
+            <a>VR开发者</a>
+            <a>深度学习</a>
+            <a>商业预测分析师</a>
+            <a>Android开发工程师</a>
+        </div>
+<div class="main">
+  <div class="mainfirst ggg">
+            <em>
+                <img src="image/形状245.png" height="24" width="40"/></em>
+         <p>Think PHP 5.0 博客系统实战项目演练   </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="mainsecond ggg">
+        <em>
+
+            <img src="image/形状24.png" height="24" width="40"/></em>
+        <p>Android 网络图片加载框架详解    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+
+    <div class="mainthird">
+        <p>Angular 2 最新框架+主流技术+项目实战      </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+
+    <div class="mainfourth">
+        <p>Android Hybrid APP开发实战 H5+原生！    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+
+    <div class="last">
+        <p>Android Hybrid APP开发实战 H5+原生！    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="mainfirst spp ggg">
+        <em>
+            <img src="image/形状245.png" height="24" width="40"/></em>
+        <p>Think PHP 5.0 博客系统实战项目演练   </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="mainsecond spp ggg">
+        <em>
+            <img src="image/形状24.png" height="24" width="40"/></em>
+        <p>Android 网络图片加载框架详解    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+
+    <div class="mainthird spp">
+        <p>Angular 2 最新框架+主流技术+项目实战      </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+
+    <div class="mainfourth spp">
+        <p>Android Hybrid APP开发实战 H5+原生！    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+
+    <div class="last spp">
+        <p>Android Hybrid APP开发实战 H5+原生！    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+</div>
+<div class="min2">
+    <p class="kk">编程入门</p>
+    <a href="#" class="daohang">热门</a>
+    <a href="#" class="daohang">初级</a>
+    <a href="#" class="daohang">中级</a>
+    <a href="#" class="daohang">高级</a>
+    <p class="ff">查看全部</p>
+</div>
+<div class="four">
+    <div class="left">
+
+        <img src="image/PHP入门： 基础语法到实际运用      零基础入门：语法与界      进阶：网络与数据缓存      界面到数据存储  .png" height="392" width="228"/>
+    </div>
+    <div class="right">
+        <div class="top2">
+            <img src="image/图层 155.png" height="100" width="957"/></div>
+        <div class="bottom">
+            <div class="bottomfirst">
+                <p>Android Hybrid APP开发实战 H5+原生！    </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+            <div class="bottomsecond">
+                <p>Kami2首页界面切换效果     </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+            <div class="bottomthird">
+                <p>Unity Profiler入门        </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+            <div class="last">
+                <p>Cocos2d-x 引擎源码中的纹理优化      </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+        <div class="min2">
+            <p class="kk">数据分析师</p>
+            <a href="#" class="daohang">热门</a>
+            <a href="#" class="daohang">初级</a>
+            <a href="#" class="daohang">中级</a>
+            <a href="#" class="daohang">高级</a>
+            <p class="ff">查看全部</p>
+        </div>
+<div class="four">
+    <div class="left">
+
+
+        <img src="image/图层 153.png" height="392" width="228"/></div>
+    <div class="right">
+        <div class="top2">
+
+            <img src="image/python+人工智能   打造您不一样的技术职场旅游.png" height="100" width="957"/></div>
+        <div class="bottom">
+            <div class="botfirst">
+                <p>Kami2首页界面切换效果     </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+            <div class="botsecond">
+                <p> Android Hybrid APP开发实战 H5+原生！   </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+            <div class="botthird">
+                <p>Cocos2d-x 引擎源码中的纹理优化       </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+            <div class="botlast">
+                <p> Unity Profiler入门      </p>
+                <span class="firstspan">高级</span>
+                <span class="secondspan">•</span>
+                <span>1125人在学习</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="min2">
+    <p class="kk">机器学习工程师</p>
+    <a href="#" class="daohang">热门</a>
+    <a href="#" class="daohang">初级</a>
+    <a href="#" class="daohang">中级</a>
+    <a href="#" class="daohang">高级</a>
+    <p class="ff">查看全部</p>
+</div>
+<div class="main">
+    <div class="mainone spp">
+        <p> Android Hybrid APP开发实战 H5+原生！   </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="maintwo spp">
+        <p>Cocos2d-x 引擎源码中的纹理优化       </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="mainthree spp">
+        <p> Unity Profiler入门      </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="mainfour spp">
+        <p>微软人工智能-数据分析平台     </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="mainfivelast spp">
+        <p>Kami2首页界面切换效果     </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+</div>
+<div class="min2">
+    <p class="kk">前端开发工程师</p>
+    <p class="ff">查看全部</p>
+</div>
+<div class="special">
+<div class="main">
+    <div class="onemain">
+        <p> 微软人工智能-数据分析平台    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="twomain">
+        <p>Unity Profiler入门     </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="threemain">
+        <p> Cocos2d-x 引擎源码中的纹理优化        </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="fourmain">
+        <p>Kami2首页界面切换效果     </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+    <div class="fivemain">
+        <p>Android Hybrid APP开发实战 H5+原生！    </p>
+        <span class="firstspan">高级</span>
+        <span class="secondspan">•</span>
+        <span>1125人在学习</span>
+    </div>
+</div>
+</div>
+        <div class="bt">
+            <div class="end">
+                <div class="left">
+                <img src="image/学成在线.png" class="laststudy" height="42" width="195"/>
+                <p>学成在线致力于普及中国最好的教育它与中国一流大学和机构合作提供在线课程。
+                    © 2017年XTCG Inc.保留所有权利。-沪ICP备15025210号</p>
+                    <a>下载APP</a>
+                </div>
+                        <div class="endone">
+                            <p>关于学成网</p>
+                            <span>关于</span>
+                            <span>管理团队</span>
+                            <span>工作机会</span>
+                            <span>客户服务</span>
+                            <span>帮助</span>
+                        </div>
+                        <div class="endone ddd">
+                            <p>新手指南</p>
+                            <span>如何注册</span>
+                            <span>如何选课</span>
+                            <span>如何拿到毕业证</span>
+                            <span>学分是什么</span>
+                            <span>考试未通过怎么办</span>
+                        </div>
+                        <div class="endonelast">
+                            <p>合作伙伴</p>
+                            <span>合作机构</span>
+                            <span>合作导师</span>
+                        </div>
+            </div>
+        </div>
+</body>
+</html>

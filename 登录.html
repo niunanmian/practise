@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+.ass{
+    width: 300px;
+    margin: 0px auto;
+    padding: 60px;
+}
+
+
+#loginDiv{
+
+background-color:#ffecec;
+}
+.err{
+    margin-top: 10px;
+margin-right: 20px;
+    margin-left: 50px;
+}
+    </style>
+</head>
+
+
+<script>
+    function myCheck()
+    {//遍历所有表单元素
+        for(var i=0;i<document.form1.elements.length-1;i++)
+        {//判断所有表单值是否为空
+            if(document.form1.elements[i].value=="")
+            {
+                alert("当前表单不能有空项");
+                //将光标定位在空表单处
+                document.form1.elements[i].focus();
+                return false;
+            }
+
+        }
+        alert("提交成功");
+
+
+    }
+
+</script>
+<body>
+    <div id="loginDiv">
+        <!--action是用来指定跳转到哪个页面-->
+        <!--get方法里面可以直接填写url地址，post需要填写.html-->
+        <form name="form1" method="get" action="https://www.baidu.com/" onSubmit="return myCheck()" onclick="this.form.reset()"
+        class="ass">
+            姓  名:<input type="text" name="username"><br><br>
+            email:<input type="email" name="email"><br><br>
+            省  :<input type="text" name="province"><br><br>
+            市:<input type="text" name="city"><br><br>
+            大学:<input type="text" name="collage"><br><br>
+            班级:<input type="text" name="class"><br><br>
+            日期:<input type="text" name="date"><br><br>
+            密码:<input type="text" name="password"><br><br>
+            确认密码:<input type="text" name="password2"><br><br>
+
+            <input type="reset" value="清除" class="err">
+            <input type="submit" value="提交">
+
+        </form>
+
+
+    </div>
+ 
+</body>
+</html>
+ 

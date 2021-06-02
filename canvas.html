@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+
+</head>
+<body>
+
+
+<canvas id="myCanvas" width="400" height="100" style="border:1px solid #c3c3c3;">
+
+</canvas>
+
+<script type="text/javascript">
+
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    ctx.moveTo(0,50);
+    ctx.lineTo(50,0);
+    ctx.lineTo(100,50);
+    ctx.lineTo(400,50);
+    ctx.strokeStyle = 'red';
+    ctx.stroke();
+
+    var text=c.getContext("2d");
+    text.font="30px Arial";
+    text.fillStyle="red";
+    text.fillText("计科18级3班",105,42);
+    var cxx=c.getContext("2d");
+    cxx.beginPath();
+    cxx.moveTo(28,28);
+    //绘制从前一次到这个点的直线
+    cxx.lineTo(48,28);
+    cxx.lineTo(28,50);
+
+
+    //结束绘制
+    cxx.closePath();
+
+    // 进行绘图处理
+    cxx.fillStyle = 'red';
+    // 填充路径
+    cxx.fill();
+
+    var cbb=c.getContext("2d");
+    cbb.beginPath();
+    cbb.moveTo(48,28);
+    //绘制从前一次到这个点的直线
+    cbb.lineTo(68,28);
+    cbb.lineTo(68,50);
+
+
+    //结束绘制
+    cbb.closePath();
+
+    // 进行绘图处理
+    cbb.fillStyle = 'red';
+    // 填充路径
+    cbb.fill();
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        .bar{
+            width: 150px;
+            height: 15px;
+            border: 1px solid red;
+            border-radius: 7px;
+            padding: 1px;
+        }
+        .bar_in{
+            width: 75px;
+            height: 15px;
+            background-color: red;
+            transition: width 1s;
+        }
+        .bar:hover .bar_in{
+            width: 100%;
+
+        }
+    </style>
+</head>
+<body>
+<div class="bar">
+    <div class="bar_in"></div>
+</div>
+</body>
+</html>

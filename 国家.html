@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="jquery.min.js"></script>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+</head>
+<body>
+<script>
+  $.ajax({
+    method:'GET',
+    //该接口2021-6-13日到期
+    url: "http://192.168.31.61:8080/123.php",  //天气API
+    //data: {city: cityCode},
+    //dataType: "jsonp",
+    //jsonp: "callback",//参数名
+    success: function (res) {
+      console.log(res)
+    }
+  })
+</script>
+</body>
+</html>

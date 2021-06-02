@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button id="button" οnclick="buttonClick();">读取数据</button>
+<div id="data"></div>
+<input type="text" id="id">
+<input type="text" id="name">
+<div>
+<input type="text" id="delete1">
+<input type="text" id="delete2">
+</div>
+<button id="delete">删除数据</button>
+<button id="adddata">添加数据</button>
+<table class="table table-striped table-bordered table-condensed" id="city">
+    <tr><th>ID</th><th>名字(NAME)</th><th>操作</th></tr>
+</table>
+
+<script>
+
+    $(function() {
+
+
+
+
+
+        var id2;
+        var name2;
+        var id3;
+        var name3;
+        var key;
+        const btn = document.getElementById("button");
+        var btn2 = document.getElementById("adddata");
+        var btn3 = document.getElementById("delete");
+
+
+        var db = null;
+        var request = window.indexedDB.open("MyTestDatabase");
+        request.onerror = function (event) {
+            // 错误处理
+            console.log(' 打开数据库报错');
+        };
+        request.onsuccess = function (event) {
+            // 成功处理
+            db = event.target.result;
+            console.log('打开数据库成功');
+        };
+        var db;
+
+        request.onupgradeneeded = function (event) {
+            db = event.target.result;
+        }
+        request.onupgradeneeded = function (event) {
+            db = event.target.result;
+            var objectStore = null;
+            if (!db.objectStoreNames.contains('imgLists')) {
+                objectStore = db.createObjectStore('imgLists', {keyPath: 'id',autoIncrement: true});
+                // unique name可能会重复
+                objectStore.createIndex('code', 'code', {unique: true});
+                objectStore.createIndex('name', 'name', {unique: false});
+            }
+        }
+
+
+        function add() {
+            // var id=2,name="练习室"
+            var request = db.transaction(['imgLists'], 'readwrite')
+                .objectStore('imgLists')
+                .add({code: id2, name: name2});
+
+            request.onsuccess = function (event) {
+                //console.log('数据写入成功');
+            };
+
+            request.onerror = function (event) {
+                console.log('数据写入失败');
+            }
+        }
+
+        function read() {
+            var transaction = db.transaction(['imgLists']);
+            var objectStore = transaction.objectStore('imgLists');
+            // 用户读取数据，参数是主键
+            var request = objectStore.get(1);
+
+            request.onerror = function (event) {
+                console.log('事务失败');
+            };
+
+            request.onsuccess = function (event) {
+                if (request.result) {
+                    console.log(request.result);
+                } else {
+                    console.log('未获得数据记录');
+                }
+            };
+        }
+
+        function readAll() {
+            var objectStore = db.transaction('imgLists').objectStore('imgLists');
+
+            objectStore.openCursor().onsuccess = function (event) {
+                var cursor = event.target.result;
+                if (cursor) {
+                    var item=0;
+                    console.log('Id: ' + cursor.key);
+                    console.log('Name: ' + cursor.value.name);
+                    item="<tr><td>"+cursor.key+"</td><td>"+cursor.value.name+"</td><td>"+'<button >操作</button>';
+                    $('.table').append(item);
+                    cursor.continue();
+                      $('table button').click(function (){
+                          console.log('button')
+                          }
+
+                      )
+                } else {
+                    console.log('以上为全部数据');
+                }
+            };
+        }
+        function remove(key) {
+           // var ts = db.transaction( ['imgLists'] ,'readwrite' );
+            //var city_os = ts.objectStore('imgLists')
+            var ts2 = db.transaction( ['imgLists'] ,'readwrite' );
+            var city_os2 = ts2.objectStore('imgLists');
+            // 在 city 存储对象上创建一个游标
+            var req3 = city_os2.openCursor();
+            req3.onsuccess = function (event) {
+                var cursor = event.target.result;
+                if (cursor) {
+                    console.log('ID: ' + cursor.key);
+                    console.log('Code: ' + cursor.value.code);
+                    console.log('Name: ' + cursor.value.name);
+
+                    if (cursor.key === key) {
+                        cursor.delete()
+                    }
+
+                    cursor.continue();
+                } else {
+                    console.log('No more data');
+                }
+            }
+        }
+        btn.onclick = function () {
+            key=2;
+            console.log(key)
+            alert("读取数据");
+            //method.add({"id":2,"name":"练习室"});
+            // add();
+            readAll();
+
+        }
+        btn2.onclick = function () {
+            id2=$('#id').val()
+            name2=$('#name').val()
+            console.log(id2+name2)
+            add();
+        }
+        btn3.onclick = function () {
+            //id3=$('#delete1').val()
+            //name3=$('#delete2').val()
+            //console.log(id2+name2)
+            console.log(key)
+            remove(key);
+        }
+
+
+
+
+        var method = {
+            // 添加数据
+            add: function (newItem) {
+                var dbName = 'imgLists';
+                var transaction = db.transaction([dbName], "readwrite");
+                // 打开已经存储的数据对象
+                var objectStore = transaction.objectStore(dbName);
+                // 添加到数据对象中
+                var objectStoreRequest = objectStore.add(newItem);
+
+                objectStoreRequest.onsuccess = function (event) {
+
+                };
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+</head>
+<script>
+    $.ajax({
+        url:"http://47.105.60.171/course/adlist.json",
+        type:"get",
+        contentType:false,
+        success:function(data){
+            console.log(data)
+            console.log(data.adlist[0].img)
+            //var imgurl=data.adlist[0].img;
+            for(var i=0;i<4;i++){
+                $('#'+'ad'+i).attr('src',data.adlist[i].img);
+
+            }
+
+        }
+    })
+</script>
+<style>
+
+</style>
+<body>
+<div id="photo">
+<img id="ad0">
+<img id="ad1">
+ <img id="ad2">
+ <img id="ad3">
+</div>
+</body>
+</html>

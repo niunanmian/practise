@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米float</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+.box{
+    width: 1226px;
+    height: 285px;
+    background-color: purple;
+}
+.box li{
+    width: 296px;
+    height: 285px;
+    float: left;
+    margin-right: 14px;
+    background-color: #ff6f00;
+}
+
+.box .last{
+    margin-right: 0px;//  注意权重问题 这里必须 .box .last
+    // 因为.last 比 .box li的权重低
+}
+</style>
+<body>
+<ul class="box">
+<li></li>
+<li></li>
+<li></li>
+<li  class="last"></li>
+</ul>
+</body>
+</html>

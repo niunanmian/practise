@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>audio2</title>
+    <script src="jquery.min.js">
+    </script>
+</head>
+<style>
+    .bigbox{
+        width: 300px;
+        margin: 0 auto;
+        border: 1px solid skyblue;
+    }
+    .bigbox a{
+        display: block;
+        height: 50px;
+border-bottom: 1px solid skyblue;
+    }
+    a:hover{
+        background: skyblue;
+    }
+    #audio{
+        margin: 10px 520px;
+    }
+    button{
+        display:block;
+        width:60px;
+        margin: 10px 800px;
+    }
+    #four{
+      border: 0px solid skyblue;
+}
+button{
+  display:block;
+  height:auto;
+font-size：14px;
+}
+</style>
+<script>
+
+    $(document).ready(function(){
+ var myAuto3 = document.getElementById('audio');
+console.log("此时的循环状态"+myAuto3.loop)
+
+        $("#first").click(function(){
+            console.log("xxxx")
+            var myAuto = document.getElementById('audio');
+            myAuto.src = "一口甜-圈住你.mp3"
+            myAuto.play();
+        });
+        $("#second").click(function(){
+            console.log("xxxx")
+            var myAuto = document.getElementById('audio');
+            myAuto.src = "But U.mp3"
+            myAuto.play();
+        });
+        $("#three").click(function(){
+            console.log("xxxx")
+            var myAuto = document.getElementById('audio');
+            myAuto.src = "mine.mp3"
+            myAuto.play();
+        });
+        $("#four").click(function(){
+            console.log("xxxx")
+            var myAuto = document.getElementById('audio');
+            myAuto.src = "Say U Love Me.mp3"
+            myAuto.play();
+        });
+        $("button").click(function(){
+            var myAuto2 = document.getElementById('audio');
+             
+       if( !myAuto2.loop)
+         { myAuto2.loop=true;
+             alert("修改成功，此时为循环播放")
+ }
+          else {myAuto2.loop=false; alert("修改成功，此时为不循环播放")}
+          console.log(myAuto2.loop);
+          
+        });
+
+    });
+</script>
+<body>
+<div class="bigbox">
+    <div >
+        <a id="first">一口甜-圈住你</a>
+    </div>
+    <div><a id="second">But U</a></div>
+    <div><a id="three">mine</a></div>
+    <div><a id="four">Say U Love Me</a></div>
+</div>
+<audio controls id="audio" >
+    <source src="Say U Love Me.mp3" type="audio/ogg">
+    <source src="一口甜-圈住你.mp3" type="audio/mpeg">
+    您的浏览器不支持 audio 元素。
+</audio>
+<button>循环</button>
+</body>
+</html>
